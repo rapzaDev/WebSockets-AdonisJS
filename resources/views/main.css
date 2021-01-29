@@ -1,28 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #status {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 8px;
   background: red;
-  display: inline-block;
 }
 
 #status.online {
   background: green;
 }
 
+#statusName {
+  margin: 0 5px 0 0;
+  padding: 0;
+  color: #eeeeee;
+}
+
+::-webkit-scrollbar {
+  width:7px;
+}
+
+::-webkit-scrollbar-track {
+  background:#686d76;
+}
+
+#corpo {
+  margin-top: 160px;
+  height: auto;
+  background: linear-gradient(180deg, rgba(71, 167, 92, 0.75) 0.7%, rgba(255, 255, 255, 0) 100%), #090F3D;
+  height: 100vh;
+}
+
+
 #content {
   display: flex;
-  margin: 0 auto;
+  margin: auto;
+  align-content: center;
   flex-direction: column;
   width: 700px;
   border: 1px solid rgba(0, 0, 0, 0.121);
-  border-radius: 3px;
+
 }
 
 #content header {
   padding: 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.121);
-  background: rgba(0, 0, 0, 0.02);
+  background: #222831;
+  display: flex;
+  align-items: center;
+
 }
 
 #content section ul {
@@ -34,17 +64,61 @@
 #content section {
   height: 400px;
   overflow-y: scroll;
+  background:#393e46;
 }
 
 #content section ul li {
   padding: 5px 2px;
+  color: #eeeeee;
 }
 
 #content footer {
   display: flex;
+  position: relative;
 }
+
 #content footer textarea {
   flex: 1;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  /* border-top: 1px solid rgba(0, 0, 0, 0.12); */
+  background: #222831;
+  color: #eeeeee;
+}
+
+#content footer textarea:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+}
+
+#content footer button {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  right: 0;
+  background: #838383;
+
+  border: 2px solid #222831 ;
+  border-right: 0;
+
+  color: #222831;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+
+  justify-content: center;
+  align-items: center;
+
+}
+
+#content footer button:hover {
+  transition: background 0.2s;
+
+  background: #393e46;
+}
+
+#content footer button:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }

@@ -9,10 +9,11 @@
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
 
-<body>
+<body id="corpo">
   <div id="content">
     <header>
-      <div id="status"></div> Status
+      <p id="statusName">Status</p>
+      <div id="status"></div>
     </header>
 
     <section>
@@ -22,6 +23,7 @@
 
     <footer>
       <textarea placeholder="Type some text here"></textarea>
+      <button type="button">Send</button>
     </footer>
   </div>
 </body>
@@ -55,9 +57,10 @@
   const textarea = document.querySelector('textarea')
   const messageBox = document.querySelector('ul')
   const section = document.querySelector('section')
+  const button = document.querySelector('button')
 
-  textarea.addEventListener('keypress', (e) => {
-    if ( e.code === "Enter" ) {
+  button.addEventListener('click', (e) => {
+    // if ( e.code === "Enter" ) {
       e.preventDefault()
 
       chat.emit("message", {
@@ -66,12 +69,13 @@
       })
 
       textarea.value = ""
-    }
+    // }
   })
+
     chat.on("message", (data) => {
       const li = document.createElement('li')
 
-      li.innerHTML = `<b>${data.name}</b> ${data.text}`
+      li.innerHTML = `<b>[ ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} ] ${data.name}</b>: ${data.text}`
 
       messageBox.appendChild(li)
 
